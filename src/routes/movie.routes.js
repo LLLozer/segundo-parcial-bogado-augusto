@@ -1,9 +1,10 @@
 import { Router } from "express";
 const routerMovie = Router()
-import { create, findByID, getAllMovies, updateData } from "../controllers/movie.controllers.js"
+import { create, deleteData, findByID, getAllMovies, updateData } from "../controllers/movie.controllers.js"
 
-routerMovie.post("/api/movies", create)
-routerMovie.get("/api/movies", getAllMovies)
-routerMovie.get("/api/movies/:id", findByID)
-routerMovie.put("/api/movies/:id", updateData)
+routerMovie.post("/movies", create)
+routerMovie.get("/movies", getAllMovies)
+routerMovie.get("/movies/:id", findByID)
+routerMovie.put("/movies/:id", updateData)
+routerMovie.delete("/movies/:id", deleteData)
 export default routerMovie

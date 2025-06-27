@@ -107,7 +107,6 @@ export const deleteData = async (req , res) => {
         }
     await findID.destroy()
         res.json("Se eliminaron los datos")
-    
     } catch (error) {
         res.status(404).json({
             message:"Error al encontrar la película",
