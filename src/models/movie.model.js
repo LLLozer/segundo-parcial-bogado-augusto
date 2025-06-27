@@ -4,6 +4,7 @@ const sequelize = new Sequelize({
     storage: "/src/config/database.js"
 })
 const Movie = sequelize.define("Movie", {
+    id: { primaryKey: true, type:DataTypes.INTEGER, allowNull: false, autoIncrement: true},
     title: { type: DataTypes.STRING, allowNull: false},
     director: { type: DataTypes.STRING, allowNull:false},
     duration: { type: DataTypes.INTEGER, allowNull:false},
@@ -11,11 +12,6 @@ const Movie = sequelize.define("Movie", {
     description: { type: DataTypes.STRING, allowNull:true},
 })
 
-console.log(Movie === sequelize.models.Movie)
+export default Movie
 
-try {
-    await sequelize.authenticate()
-    console.log("Conexión exitosa a MySQL")
-} catch(error) {
-    console.log("Error: No se pudo establecer la conexión con MySQL")
-}
+console.log(Movie === sequelize.models.Movie)
