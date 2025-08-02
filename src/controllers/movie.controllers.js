@@ -62,12 +62,6 @@ export const updateData = async (req , res) => {
         })
     }
     try {
-        const movValidate = await Movie.findOne({ title })
-            if (movValidate) {
-                return res.status(400).json({
-                message:"Error: Esa película ya existe"
-            })
-        } 
         const findID = await Movie.findByPk(id)
         if (!findID) {
             res.status(404).json({
